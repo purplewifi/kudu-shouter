@@ -19,7 +19,7 @@ builds:
 
 dockers:
   - image_templates:
-      - "ghcr.io/surdaft/ssh-pushgateway:latest"
+      - "ghcr.io/surdaft/kudu-shouter:latest"
 
 changelog:
   sort: asc
