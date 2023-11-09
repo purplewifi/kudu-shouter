@@ -1,0 +1,11 @@
+{
+    "cSpell.words": [
+        "containrrr",
+        "kudushouter",
+        "shoutrrr",
+        "surdaft"
+    ],
+    "yaml.schemas": {
+        "https://json.schemastore.org/github-workflow.json": "file:///home/jackstupple/go/src/github.com/surdaft/kudu-shouter/.github/workflows/goreleaser.yaml"
+    }
+}
