@@ -38,12 +38,18 @@ var (
 		Version: fmt.Sprintf("kudu-shouter - v%s (%s) by %s - %s", version, commit, builtBy, date),
 		Short:   "Forward kudu webhooks via shoutrrr",
 		Run: func(cmd *cobra.Command, args []string) {
+			if len(serviceURLs) < 1 {
+				slog.Error("no service URLs defined")
+				return
+			}
+
 			sender, err := shoutrrr.CreateSender(serviceURLs...)
 			if err != nil {
 				slog.Error("error creating sender", slog.Any("error", err.Error()))
 				return
 			}
 
+			gin.SetMode(gin.ReleaseMode)
 			r := gin.Default()
 
 			r.POST("/capture", func(ctx *gin.Context) {
@@ -67,7 +73,16 @@ var (
 					return
 				}
 
-				sender.SendAsync(msg.String(), nil)
+				errs := sender.SendAsync(msg.String(), nil)
+				go func() {
+					for {
+						err := <-errs
+						if err != nil {
+							slog.Error("error sending", slog.Any("error", err))
+						}
+					}
+				}()
+
 				ctx.JSON(http.StatusOK, map[string]any{"success": true})
 			})
 
