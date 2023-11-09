@@ -48,7 +48,11 @@ var (
 
 			r.POST("/capture", func(ctx *gin.Context) {
 				var payload kudushouter.Payload
-				ctx.BindJSON(&payload)
+				err := ctx.BindJSON(&payload)
+				if err != nil {
+					handleServerErr(ctx, "error binding json from payload", err)
+					return
+				}
 
 				t, err := template.New("message").Parse(messageTemplate)
 				if err != nil {
@@ -71,7 +75,10 @@ var (
 				ctx.String(200, "OK")
 			})
 
-			r.Run(httpAddress)
+			err = r.Run(httpAddress)
+			if err != nil {
+				slog.Error("failed to create server", slog.Any("error", err.Error()))
+			}
 		},
 	}
 )

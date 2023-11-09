@@ -2,18 +2,20 @@ module github.com/surdaft/kudu-shouter
 
 go 1.21.3
 
-require github.com/spf13/cobra v1.8.0
+require (
+	github.com/containrrr/shoutrrr v0.8.0
+	github.com/gin-gonic/gin v1.9.1
+	github.com/spf13/cobra v1.8.0
+)
 
 replace github.com/containrrr/shoutrrr => github.com/surdaft/shoutrrr v0.9.0
 
 require (
 	github.com/bytedance/sonic v1.9.1 // indirect
 	github.com/chenzhuoyu/base64x v0.0.0-20221115062448-fe3a3abad311 // indirect
-	github.com/containrrr/shoutrrr v0.8.0 // indirect
 	github.com/fatih/color v1.15.0 // indirect
 	github.com/gabriel-vasile/mimetype v1.4.2 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
-	github.com/gin-gonic/gin v1.9.1 // indirect
 	github.com/go-playground/locales v0.14.1 // indirect
 	github.com/go-playground/universal-translator v0.18.1 // indirect
 	github.com/go-playground/validator/v10 v10.14.0 // indirect
