@@ -4,7 +4,7 @@ go 1.21.3
 
 require github.com/spf13/cobra v1.8.0
 
-replace github.com/containrrr/shoutrrr => ./../shoutrrr
+replace github.com/containrrr/shoutrrr => github.com/surdaft/shoutrrr v0.9.0
 
 require (
 	github.com/bytedance/sonic v1.9.1 // indirect
