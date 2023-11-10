@@ -15,7 +15,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/spf13/cobra"
 
-	kudushouter "github.com/surdaft/kudu-shouter/kudu-shouter"
+	kudushouter "github.com/purplewifi/kudu-shouter/kudu-shouter"
 )
 
 var (

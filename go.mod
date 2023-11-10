@@ -1,4 +1,4 @@
-module github.com/surdaft/kudu-shouter
+module github.com/purplewifi/kudu-shouter
 
 go 1.21.3
 
